@@ -17,6 +17,8 @@ provisioner:
     ANSIBLE_VERBOSITY: 1
     ANSIBLE_LOCAL_TEMP: "${WORKSPACE:-$HOME}/.ansible/tmp"
     ANSIBLE_REMOTE_TMP: "/tmp"      
+    playbooks:
+    verify: ../shared/tests/verify.yml
 verifier:
   name: ansible
 
