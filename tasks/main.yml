@@ -1,14 +1,15 @@
 ---
 - name: "Download Vector packages"
+  become: true
   ansible.builtin.get_url:
     url: "{{ vector_repo }}/{{ vector_version }}/vector-1.x86_64.rpm"
-    dest: "/home/user1/vector-{{ vector_version }}.x86_64.rpm"
-    mode: "0644"
+    dest: "/tmp/vector-{{ vector_version }}.x86_64.rpm"
+    mode: "0755"
     timeout: 200
 - name: "Install Vector packages"
   become: true
   ansible.builtin.yum:
-    name: "/home/user1/vector-{{ vector_version }}.x86_64.rpm"
+    name: "/tmp/vector-{{ vector_version }}.x86_64.rpm"
     state: present
     disable_gpg_check: true
 - name: "Create parent directory for Vector config"
