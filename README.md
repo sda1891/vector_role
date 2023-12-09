@@ -3,7 +3,7 @@ Installs and configures Lightweight interface for ClickHouse
 
 ## Description
 
-Deploy [vector](https://github.com/sda1891/vector-role.git) using ansible.
+Deploy [vector](https://github.com/sda1891/vector_role.git) using ansible.
 
 ## Requirements
 
@@ -39,7 +39,7 @@ Including an example of how to use your role (for instance, with variables passe
 ```yaml
     - hosts: servers
       roles:
-         - role: vector-role
+         - role: vector_role
 ```
 
 License
