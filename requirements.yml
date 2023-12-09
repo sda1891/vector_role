@@ -1,0 +1,4 @@
+---
+roles:
+  - name: vector_role
+    src: https://github.com/sda1891/vector_role
