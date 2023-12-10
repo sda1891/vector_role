@@ -1,5 +1,5 @@
 # Ansible Role:  Vector
-Installs and configures Lightweight interface for ClickHouse
+Installs and configures Vector - lightweight and ultra-fast tool for building observability pipelines
 
 ## Description
 
