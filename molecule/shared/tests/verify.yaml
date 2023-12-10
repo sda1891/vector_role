@@ -8,6 +8,10 @@
       include_role:
         name: "vector_role"
 
+    - name: "Example assertion"
+      assert:
+        that: true
+
     - name: 'Gather Vector Config Files Stats'
       ansible.builtin.stat:
         path: "{{ vector_config_dir }}/vector.yml"

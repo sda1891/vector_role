@@ -31,4 +31,4 @@
     dest: /usr/lib/systemd/system/vector.service
     mode: "0644"
     backup: true
-  notify: "Start Vector service"
+  notify: "Restart Vector service"
