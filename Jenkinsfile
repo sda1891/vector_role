@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Clean role') {
             steps {
-                sh 'ansible-galaxy role remove vector-role'
+                sh 'ansible-galaxy role remove vector_role'
             }
         }
     }
