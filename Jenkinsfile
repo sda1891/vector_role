@@ -1,5 +1,9 @@
 pipeline {
     agent { label 'ansible' }
+    environment {
+        PATH = "/usr/local/bin:/usr/bin:/home/jenkins/.local/bin:/usr/lib64/python3.11/site-packages:/usr/bin/python3.11"
+    }
+    
     stages {
         stage('Git checkout') {
            steps {    
@@ -8,17 +12,17 @@ pipeline {
         }
         stage('Install requirements') {
             steps {
-                sh 'PATH=$PATH:/home/jenkins/.local/bin ansible-galaxy install -r requirements.yml'
+                sh 'ansible-galaxy install -r requirements.yml'
             }
         }
         stage('Run molecule') {
             steps {
-                sh 'PATH=$PATH:/home/jenkins/.local/bin molecule test -s centos8'
+                sh 'molecule test -s centos8'
             }
         }
         stage('Clean role') {
             steps {
-                sh 'PATH=$PATH:/home/jenkins/.local/bin ansible-galaxy role remove vector-role'
+                sh 'ansible-galaxy role remove vector-role'
             }
         }
     }
