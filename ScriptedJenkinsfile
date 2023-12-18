@@ -1,0 +1,23 @@
+node("ansible") {
+    environment {
+        PATH = "/usr/local/bin:/usr/bin:/home/jenkins/.local/bin:/usr/lib64/python3.11/site-packages:/usr/bin/python3.11:${env.PATH}"
+    }
+
+    stage("Git checkout") {
+        git url: 'https://github.com/sda1891/example-playbook.git', branch: 'main'
+    }
+
+    stage("Set prod_run parameter") {
+        prod_run=true
+    }
+
+    stage("Run playbook") {
+        if (prod_run) {
+            sh 'hostname -f'
+            sh 'ls -lah'
+            sh 'ansible-playbook -i inventory/prod.yml site.yml --extra-vars "ansible_python_interpreter=/usr/bin/python3.11"'
+        } else {
+            echo 'need more action'
+        }
+    }
+}
