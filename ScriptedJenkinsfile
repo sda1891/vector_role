@@ -13,8 +13,6 @@ node("ansible") {
 
     stage("Run playbook") {
         if (prod_run) {
-            sh 'hostname -f'
-            sh 'ls -lah'
             sh 'ansible-playbook -i inventory/prod.yml site.yml --extra-vars "ansible_python_interpreter=/usr/bin/python3.11"'
         } else {
             echo 'need more action'
